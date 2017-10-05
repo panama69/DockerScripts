@@ -15,6 +15,7 @@ HOMEDIR=$(pwd)
 
 docker run -d --name intellij \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
+-v ${HOMEDIR}/.m2:/root/.m2 \
 -v ${HOMEDIR}/.IdeaIC2017.2:/root/.IdeaIC2017.2 \
 -v ${HOMEDIR}/IdeaProjects_docker:/root/IdeaProjects \
 -e DISPLAY=unix$DISPLAY \
