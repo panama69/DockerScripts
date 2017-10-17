@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker exec devops ls -al /GitRepo
+
