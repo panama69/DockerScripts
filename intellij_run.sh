@@ -1,22 +1,22 @@
 #!/bin/bash
 
-cd
-HOMEDIR=$(pwd)
 
-#docker run -it --rm \
-#--name intellij \
-#-v /tmp/.X11-unix:/tmp/.X11-unix \
-#-v ${HOMEDIR}/.m2:/home/intellij/.m2 \
-#-v ${HOMEDIR}/IdeaProjects_docker:/home/intellij/IdeaProjects \
-#-e DISPLAY=unix$DISPLAY \
-#--net "host" \
-#-p 8824:8824 \
-#-p 5095:5095 \
+IDEA="IdeaProjects_docker"
+
+# if the folder doesn't exist, create it so it is owned by the user
+if [ ! -d "${HOME}/${IDEA}" ]
+then
+	mkdir ${HOME}/${IDEA}
+fi
+
+if [ ! -d "${HOME}/.m2" ]
+then
+        mkdir ${HOME}/.m2
+fi
 
 docker run -d --name intellij \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
--v ${HOMEDIR}/.m2:/root/.m2 \
--v ${HOMEDIR}/.IdeaIC2017.2:/root/.IdeaIC2017.2 \
--v ${HOMEDIR}/IdeaProjects_docker:/root/IdeaProjects \
+-v ${HOME}/.m2:/home/demo/.m2 \
+-v ${HOME}/${IDEA}:/home/demo/IdeaProjects \
 -e DISPLAY=unix$DISPLAY \
---net "host" -p 8824:8824 admpresales/intellij:1.1.2.0
+--net "host" -p 8824:8824 -p 5095:5095 admpresales/intellij:1.1.2.1
