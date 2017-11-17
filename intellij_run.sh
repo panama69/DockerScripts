@@ -19,4 +19,4 @@ docker run -d --name intellij \
 -v ${HOME}/.m2:/home/demo/.m2 \
 -v ${HOME}/${IDEA}:/home/demo/IdeaProjects \
 -e DISPLAY=unix$DISPLAY \
---net "host" -p 8824:8824 -p 5095:5095 admpresales/intellij:1.1.2.1
+--net "host" -p 8824:8824 -p 5095:5095 admpresales/intellij:1.1.2.2
