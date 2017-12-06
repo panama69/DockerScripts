@@ -1,6 +1,9 @@
 #!/bin/bash
 
-SERVER_IP=$(grep -i 'DockerServer' /etc/hosts | awk '{print $1}' | sort --unique)
+# -e DISABLE_VALIDATOR_MEMORY=true \
 
-docker run --name octane --hostname octane.aos.com --net demo-net -p 8085:8080 --add-host DockerServer:$SERVER_IP --add-host DockerServer.aos.com:$SERVER_IP \
---shm-size=2g -d -p 9081:9081 -p 9082:9082 -p 1099:1099 admpresales/octane
+docker run -d -p 1099:1099 -p 8085:8080 -p 9081:9081 -p 9082:9082 \
+--name octane --hostname octane.aos.com --net demo-net --shm-size=2g \
+-e OCTANE_HOST=nimbusserver.aos.com \
+ -e DISABLE_VALIDATOR_MEMORY=TRUE \
+admpresales/octane:12.55.8.137_dis

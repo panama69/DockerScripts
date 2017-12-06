@@ -1,0 +1,60 @@
+version: '3'
+
+volumes:
+  etc:
+  var_log:
+  var_lib:
+  var_cache:
+
+services:
+  sv-server:
+    image: admpresales/sv-server:latest
+    container_name: sv-server
+    hostname: ${HOST_NAME}
+    environment:
+      - WAIT_FOR_DB=sv-db:1521
+      - SV_SERVER_AGENT_PORTS=7000-7019
+      - SV_USER=demo
+      - SV_PASSWORD=changeit
+      - SV_GROUPS=SVM Users,SV Server Administrators
+    ports:
+      - 6085:6085 # secure REST
+      - 7000-7019:7000-7019 # SV agents
+    volumes:
+      - etc:/etc/hpe-sv-server/
+      - var_log:/var/log/hpe-sv-server/
+      - var_lib:/var/lib/hpe-sv-server/
+      - var_cache:/var/cache/hpe-sv-server/
+      - ./Oracle.ManagedDataAccess.dll:/usr/lib/hpe-sv-server/bin/Oracle.ManagedDataAccess.dll
+      # SV Agent binaries
+#      - ./some-library.so:/usr/lib/hpe-sv-server/bin/some-library.so
+#      - ./another-library.dll:/usr/lib/hpe-sv-server/bin/another-library.dll
+    stop_grace_period: 2m
+    depends_on:
+      - sv-db
+  sv-lab-server:
+    image: admpresales/sv-lab-server:latest
+    container_name: sv-lab-server
+    hostname: ${HOST_NAME}
+    environment:
+      - SV_LAB_SERVER_CONNECTOR_PORTS=9000-9019
+    ports:
+      - 8445:8445 # secure REST
+      - 9000-9019:9000-9019 # SV connectors
+    volumes:
+      - var_log:/opt/LabServer/log/
+    stop_grace_period: 2m
+  sv-svm:
+    image: admpresales/sv-svm:latest
+    container_name: sv-svm
+    hostname: ${HOST_NAME}
+    ports:
+      - 6086:6086 # secure web
+    volumes:
+      - etc:/etc/hpe-sv-server/
+      - var_log:/var/log/hpe-sv-server/
+      - var_cache:/var/cache/hpe-sv-server/
+    stop_grace_period: 2m
+  sv-db:
+    image: admpresales/sv-db:latest
+    container_name: sv-db
