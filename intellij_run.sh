@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# 8824 - port for the brower agent to talk with LFT.  Without this port, you won't be able to use the OIC.
 
 IDEA="IdeaProjects_docker"
 
@@ -14,9 +15,14 @@ then
         mkdir ${HOME}/.m2
 fi
 
+# -v ${HOME}/.m2:/home/demo/.m2 \
+# -v ${HOME}/${IDEA}:/home/demo/IdeaProjects \
+#-e LFT_LIC_SERVER=nimbusserver -e LFT_LIC_ID=23078 -e LFT_LIC_ID_VERSION=1 -e VERBOSE=true \
+
 docker run -d --name intellij \
 -v /tmp/.X11-unix:/tmp/.X11-unix \
 -v ${HOME}/.m2:/home/demo/.m2 \
 -v ${HOME}/${IDEA}:/home/demo/IdeaProjects \
 -e DISPLAY=unix$DISPLAY \
---net "host" -p 8824:8824 -p 5095:5095 admpresales/intellij:1.1.2.2
+-e LFT_LIC_SERVER=nimbusserver -e LFT_LIC_ID=23078 -e LFT_LIC_ID_VERSION=1 -e VERBOSE=true \
+--net "host" -p 5095:5095 -p 8824:8824 admpresales/intellij:1.1.2.3
