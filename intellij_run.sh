@@ -25,4 +25,4 @@ docker run -d --name intellij \
 -v ${HOME}/${IDEA}:/home/demo/IdeaProjects \
 -e DISPLAY=unix$DISPLAY \
 -e LFT_LIC_SERVER=nimbusserver -e LFT_LIC_ID=23078 -e LFT_LIC_ID_VERSION=1 -e VERBOSE=true \
---net "host" -p 5095:5095 -p 8824:8824 admpresales/intellij:1.1.2.3
+--net "host" -p 5095:5095 -p 8824:8824 admpresales/intellij:1.1.2.4
