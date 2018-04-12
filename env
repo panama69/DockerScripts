@@ -1,0 +1,11 @@
+alm admpresales/alm:12.55_di
+aos-postgres admpresales/aos-postgres:1.1.3.1
+aos-main-app admpresales/aos-main-app:1.1.3.1
+aos-accountservice  admpresales/aos-accountservice:1.1.3.1
+autopass admpresales/autopass:9.3_v2
+devops admpresales/devops:1.1.3.3
+intellij admpresales/intellij:1.1.3.1
+jira admpresales/jira:7.6.3
+mc admpresales/mc:2.60_di
+octane admpresales/octane:12.55.17.164_dis
+ppm admpresales/ppm:9.42.0.1_d
