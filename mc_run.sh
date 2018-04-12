@@ -1,3 +1,6 @@
 #!/bin/bash
 
-docker run -d --hostname mc.aos.com --name mc --net demo-net -p 8084:8080 --shm-size=2g admpresales/mc:2.51_di
+IMAGE=`grep "mc " env|awk '{print $2}'`
+echo -e "Starting image: \n\t${IMAGE}"
+
+docker run -d --hostname mc.aos.com --name mc --net demo-net -p 8084:8080 --shm-size=2g ${IMAGE}
