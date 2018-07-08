@@ -1,8 +1,12 @@
 #!/bin/bash
 
 # -e DISABLE_VALIDATOR_MEMORY=true \
-
-IMAGE=`grep "octane " env|awk '{print $2}'`
+if [[ $# -gt 0 ]]
+then
+   IMAGE=$1
+else
+   IMAGE=`grep "octane " env|awk '{print $2}'`
+fi
 echo -e "Starting image: \n\t${IMAGE}"
 
 docker run -d -p 1099:1099 -p 8085:8080 -p 9081:9081 -p 9082:9082 \

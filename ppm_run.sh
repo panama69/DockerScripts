@@ -1,6 +1,11 @@
 #!/bin/bash
 
-IMAGE=`grep "ppm " env|awk '{print $2}'`
+if [[ $# -gt 0 ]]
+then
+   IMAGE=$1
+else
+   IMAGE=`grep "ppm " env|awk '{print $2}'`
+fi
 echo -e "Starting image: \n\t${IMAGE}"
 
 docker run --name ppm -d --shm-size=2g \

@@ -1,6 +1,11 @@
 #!/bin/bash
 
-IMAGE=`grep "alm " env|awk '{print $2}'`
+if [[ $# -gt 0 ]]
+then
+   IMAGE=$1
+else
+   IMAGE=`grep "alm " env|awk '{print $2}'`
+fi
 echo -e "Starting image: \n\t${IMAGE}"
 
 docker run -d \
