@@ -3,7 +3,12 @@
 # 8824 - port for the brower agent to talk with LFT.  Without this port, you won't be able to use the OIC.
 
 IDEA="IdeaProjects_docker"
-IMAGE=`grep "intellij " env|awk '{print $2}'`
+if [[ $# -gt 0 ]]
+then
+   IMAGE=$1
+else
+   IMAGE=`grep "intellij " env|awk '{print $2}'`
+fi
 echo -e "Starting image: \n\t${IMAGE}"
 
 # if the folder doesn't exist, create it so it is owned by the user
