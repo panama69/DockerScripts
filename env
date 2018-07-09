@@ -1,7 +1,7 @@
 alm admpresales/alm:12.55_di
 aos-postgres admpresales/aos-postgres:1.1.3.2
 aos-main-app admpresales/aos-main-app:1.1.3.2
-aos-accountservice  admpresales/aos-accountservice:1.1.3.2
+aos-accountservice admpresales/aos-accountservice:1.1.3.2
 autopass admpresales/autopass:9.3.3_d
 da admpresales/da-server:6.1.5_di
 devops admpresales/devops:1.1.3.7
