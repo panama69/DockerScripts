@@ -1,4 +1,5 @@
 alm admpresales/alm:12.55_di
+android-emulator admpresales/android-emulator:2.60
 aos-postgres admpresales/aos-postgres:1.1.3.2
 aos-main-app admpresales/aos-main-app:1.1.3.2
 aos-accountservice admpresales/aos-accountservice:1.1.3.2
