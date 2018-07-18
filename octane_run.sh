@@ -1,11 +1,18 @@
 #!/bin/bash
 
 # -e DISABLE_VALIDATOR_MEMORY=true \
+PRODUCT="octane"
 if [[ $# -gt 0 ]]
 then
    IMAGE=$1
 else
-   IMAGE=`grep "octane " env|awk '{print $2}'`
+   if [ `grep "^${PRODUCT} " env| wc -l` -eq 1 ]
+   then
+      IMAGE=`grep "^${PRODUCT} " env|awk '{print $2}'`
+   else
+      echo "Your env file contains multiple entires for ${PRODUCT}"
+      exit 1
+   fi
 fi
 echo -e "Starting image: \n\t${IMAGE}"
 

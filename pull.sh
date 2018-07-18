@@ -33,7 +33,11 @@ fi
 
 IFS=$'\n'       # make newlines the only separator
 set -f          # disable globbing
-for i in $(cat < "$1"); do
+# the grep explained:
+#  -v - invert so get all lines that do not match the expression
+#  ^# - say lines that start with #
+#  ^$ - says blank lines
+for i in $(cat < "$1"|grep -v "^#\|^$"); do
   IMAGE="$(cut -d' ' -f2 <<<"$i")"
   echo "Pulling: ${IMAGE}"
   docker pull ${IMAGE}

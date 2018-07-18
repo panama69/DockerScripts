@@ -1,13 +1,36 @@
+#ALM
 alm admpresales/alm:12.55_di
+
+#MOBILE
 android-emulator admpresales/android-emulator:2.60
+
+#AOS
 aos-postgres admpresales/aos-postgres:1.1.3.3
 aos-main-app admpresales/aos-main-app:1.1.3.3
 aos-accountservice admpresales/aos-accountservice:1.1.3.3
+
+#AUTOPASS
 autopass admpresales/autopass:9.3.3_d
+
+#DEPLOYMENT AUTOMATION
 da admpresales/da-server:6.2.0_di
+
+#DEVOPS
 devops admpresales/devops:1.1.3.7
+#devops admpresales/devops:1.1.3.6
+
+#INTELLIJ
 intellij admpresales/intellij:1.1.3.6
+
+#JIRA
 jira admpresales/jira:7.6.3
+
+#MOBILE CENTER
 mc admpresales/mc:2.70_di
-octane admpresales/octane:12.55.17.164_dis
+
+#OCTANE
+#octane admpresales/octane:12.55.17.164_dis
+octane admpresales/octane:12.60.4.98_dis
+
+#PPM
 ppm admpresales/ppm:9.42.0.1_d
