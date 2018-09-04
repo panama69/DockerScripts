@@ -15,6 +15,7 @@ else
 fi
 echo -e "Starting image: \n\t${IMAGE}"
 
+#   cptactionhank/atlassian-jira-software:7.5.3
 #   cptactionhank/atlassian-jira-software:7.6.3
 #   cptactionhank/atlassian-jira-software:7.8.0
 docker run --name jira --hostname jira.aos.com \
