@@ -1,8 +1,8 @@
 #!/bin/bash
 
-IMAGE_POSTGRES=`grep "aos-postgres " env|awk '{print $2}'`
-IMAGE_ACCTSERVICE=`grep "aos-accountservice " env|awk '{print $2}'`
-IMAGE_MAIN=`grep "aos-main-app " env|awk '{print $2}'`
+IMAGE_POSTGRES=`grep "^aos-postgres " env|awk '{print $2}'`
+IMAGE_ACCTSERVICE=`grep "^aos-accountservice " env|awk '{print $2}'`
+IMAGE_MAIN=`grep "^aos-main-app " env|awk '{print $2}'`
 echo -e "Starting AOS using images: \n\t${IMAGE_POSTGRES}\n\t${IMAGE_ACCTSERVICE}\n\t${IMAGE_MAIN}"
 
 docker run -d -p 5432:5432 --name aos_postgres --hostname aosdb.aos.com --net demo-net ${IMAGE_POSTGRES}
