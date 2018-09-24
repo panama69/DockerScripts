@@ -23,7 +23,8 @@ da admpresales/da-server:6.2.0_di
 #DEVOPS
 #devops admpresales/devops:1.1.3.6
 #devops admpresales/devops:1.1.3.7
-devops admpresales/devops:1.1.5.1
+#devops admpresales/devops:1.1.5.1
+devops admpresales/devops:1.1.5.2
 
 #INTELLIJ
 #intellij admpresales/intellij:1.1.3.6
