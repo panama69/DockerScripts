@@ -31,7 +31,8 @@ devops admpresales/devops:1.1.5.2
 #intellij admpresales/intellij:1.1.3.7
 #intellij admpresales/intellij:1.1.5.1
 #intellij admpresales/intellij:1.1.5.2
-intellij admpresales/intellij:1.1.5.3
+#intellij admpresales/intellij:1.1.5.3
+intellij admpresales/intellij:1.1.5.4
 
 #JIRA
 jira admpresales/jira:7.6.3
