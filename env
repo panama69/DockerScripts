@@ -24,7 +24,8 @@ da admpresales/da-server:6.2.0_di
 #devops admpresales/devops:1.1.3.6
 #devops admpresales/devops:1.1.3.7
 #devops admpresales/devops:1.1.5.1
-devops admpresales/devops:1.1.5.2
+#devops admpresales/devops:1.1.5.2
+devops admpresales/devops:1.1.5.3
 
 #INTELLIJ
 #intellij admpresales/intellij:1.1.3.6
@@ -45,6 +46,8 @@ mc admpresales/mc:2.80_di
 #octane admpresales/octane:12.55.17.164_dis
 #octane admpresales/octane:12.60.4.98_dis
 octane admpresales/octane:12.60.10.90_dis
+#octane admpresales/octane:12.60.16.70_dis
+#octane admpresales/octane:12.60.21.98_dis
 
 #PPM
 ppm admpresales/ppm:9.42.0.1_d
